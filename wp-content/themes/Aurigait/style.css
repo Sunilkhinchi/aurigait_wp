@@ -1,0 +1,164 @@
+/*
+Theme Name: Aurigait
+Theme URI: sunil.khinchi.com
+Description: Auriga custom theme without use any plugin and page builder
+Tags: blog, one-column, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-width-template, theme-options
+Author: sunil khinchi
+Author URI: sunil.khinchi.com
+Version: 1.0.0
+
+*/
+
+/* html {
+    font-size: 10px;
+} */
+
+
+.menu-container {
+    max-width: 1140px;
+    margin: auto;
+    /* background-color: red; */
+}
+.menu-container .nav-item li {
+   list-style: none;
+}
+.nav-item a{
+    font-size: 1rem;
+    color: #333333;
+    text-decoration: none;
+   
+}
+.ul-navbar {
+    gap:1.8rem;
+}
+.ul-navbar li {
+    padding: 10px 0px;
+}
+.ul-navbar li .sub-menu li {
+    padding: 0px;
+}
+.ul-navbar .menu-item-has-children {
+    position: relative;
+}
+
+li.menu-item-has-children:hover>.sub-menu {
+    visibility: visible;
+    opacity: 1;
+}
+
+.ul-navbar  li.menu-item-has-children:after {
+    content: url('http://localhost/AurigaCus/wp-content/uploads/2022/10/Expand_More.svg');
+    margin-left: 10px;
+}
+
+.sub-menu {
+    position: absolute;
+    left: 0;
+     margin-top: 10px;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity .2s ease-in;
+    padding: 10px;
+    background: #fff;
+    text-align: left;
+    width: 95px;
+    box-shadow: 1px 1px 30px rgb(0 0 0 / 6%);
+    border-top: 4px solid red;
+   
+}
+.container-second-home {
+    margin-top: 9rem;
+}
+.btn-site {
+    font-size: 16px !important;
+    color: #333 !important;
+    font-weight: 500;
+    line-height: 24px;
+    border: 1px solid #333 !important;
+    border-radius: 0px !important;
+} 
+.test-heading-small {
+    font-weight: 600;
+    margin: 0;
+    font-size: 1em;
+    color: #727e87;
+    line-height: 24px;
+}
+.right-section {
+    gap: 15px;
+}
+.right-section h3  {
+font-size: 1.5rem;
+}
+.right-section p , .right-section-case p {
+    font-size: .9rem;
+}
+.right-section-case h3 {
+    font-size: 1.3rem;
+}
+
+.slider-section-home {
+    padding-bottom: 4rem;
+    margin-bottom: 4rem;
+}
+
+.container-second-home {
+ background: #F0F8FA;   
+}
+/* .for-bg-image {
+    position: relative;
+}
+.image-bg-tab-home {
+    position: absolute;
+    display: flow-root;
+} */
+.for-bg-image {
+    position: relative;
+}
+img.image-bg-tab-home {
+    width: 100%;
+}
+
+.for-bg-image .text-inner {
+    position: absolute;
+    top: 0%;
+    padding: 8% ;
+    color: #fff;   
+}
+.for-bg-image .text-inner h4{
+            font-size: 30px;
+            line-height: 42px;
+}
+
+.for-bg-image .text-inner p{
+    font-size: 18px;
+    line-height: 28px;
+    margin-top: 27px;
+    margin-bottom: 50px;
+    font-weight: 400;
+    max-width: 75%;
+}
+.for-bg-image .text-inner .btn-inner-text{
+    font-size: 14px;
+    line-height: 21px;
+    color: #f2f2f2;
+    background-color: transparent;
+    border: 1px solid;
+    box-shadow: none;
+    padding: 7px 20px;
+    font-weight: 500;
+}
+.btn-cover-tab .nav-link {
+    color: #272727 !important;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    padding-left: 0px;
+}
+.btn-cover-tab .nav-link.active {
+   background-color: transparent !important;
+   font-weight: 600;
+
+}
+
