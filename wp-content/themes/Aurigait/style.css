@@ -162,3 +162,118 @@ img.image-bg-tab-home {
 
 }
 
+.log-image-cover .log-image {
+    padding: 41px 33px;
+}
+ 
+.projectandyear-text p {
+font-size: 24px;
+font-weight: 600;
+line-height: 36px;
+}
+
+.projectandyear-text .row {
+    padding: 70px 0px;
+    border-top: 1px dashed #CBD5DB;
+}
+
+.projectandyear h3 {
+    font-weight: 900;
+    margin: 0;
+    font-size: 48px;
+    color: #3b4750;
+    line-height: 74px;
+}
+
+.projectandyear p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 36px;
+    color: #727E87;
+}
+.gallery-section {
+    overflow-x: scroll;
+}
+.gallery-section-inner .inner-images:nth-child(even) {
+    width: 292px;
+    height: 437px;
+    background:url('http://localhost/AurigaCus/wp-content/uploads/2022/10/image.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.gallery-section-inner {
+    gap: 45px;
+}
+.gallery-section-inner .inner-images:nth-child(odd) {
+    width: 519px;
+    height: 349px;
+    background:url('http://localhost/AurigaCus/wp-content/uploads/2022/10/image.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.career-section {
+    background: #F0F8FA;
+}
+
+.career-inner .text-part {
+   width: 75%;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50% ,-50%);
+
+}
+.inside-outer-div {
+    gap: 55px;
+}
+.inside-posts {
+    gap: 18px;
+}
+
+.inside-posts h5 {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 36px;
+    color: #333333;
+}
+
+.inside-posts p {
+            font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        color: #727E87;
+}
+
+.inside-posts a {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 19px;
+        color: #1088DC;
+        text-decoration: none;
+}
+.let-connect {
+    padding: 130px 0px;
+}
+
+.footer-nav .nav-item a {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color:#000 !important;
+}
+
+ul.icon-footer-outer {
+    gap: 15px;
+}
+
+li.icon-footer {
+    width: 18px;
+    list-style: none;
+    gap: 10px;
+}
+.footer-outer-div {
+    border-top: 1px dashed #CBD5DB;
+}
+
+
