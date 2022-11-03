@@ -1,6 +1,5 @@
 <?php 
-
-//Template Name: Industries 
+//Template Name: T-Industries 
 get_header();
 ?>
 Industries page

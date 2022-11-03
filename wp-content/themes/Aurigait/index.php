@@ -9,7 +9,7 @@ get_header();
 ?> 
 
 
-    hello wordpress
+    hello wordpress blog page
     <?php
 
 get_footer();

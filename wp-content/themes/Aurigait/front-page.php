@@ -2,7 +2,7 @@
 get_header();
 // hello(); echo get_template_directory_uri();
 ?>
-  <div class="container container-top d-lg-flex align-items-lg-center content-space-t-3 content-space-lg-0 min-vh-lg-100">
+  <div class="container container-top mb-5 d-lg-flex align-items-lg-center content-space-t-3 content-space-lg-0 min-vh-lg-100">
         <!-- Heading -->
         <div class="w-100" style="margin-top: 10rem;">
           <div class="row row-home-top">
@@ -35,20 +35,49 @@ get_header();
       <div class="container-fluid py-5 container-second-home">
          <div class="container">
           <h5 class="test-heading-small mb-4">Our work</h2>
-          <div class="row">
-            <div class="col-6"><img class="w-100" src="http://localhost/AurigaCus/wp-content/uploads/2022/10/featured-image.png" alt=""></div>
-            <div class="col-6 right-section px-4 d-flex justify-content-center flex-column align-items-start ">
-                <h3>Data analytics for Volkswagen : A Classic Case of Load balancing</h3>
-                <div class="tags">
-                  <p><span class="single-tags">Java</span> . <span class="single-tags">Artificial Intelligence</span> . <span class="single-tags">Automobile</span></p>
-                </div>
-                <p>We upgraded the Volkswagen’s data entry system to the next level. Increased the system security by 24%.</p>
-               <div class="btn-div"> <a class="btn btn-site px-6" href="Case-study">View Case Study</a> </div>
-            </div>
-          </div>
-          <div class="row">
 
-          </div>
+          <?php 
+            $args = array( 'post_type' => 'casestudys', 'posts_per_page' => 1 );
+            $the_query = new WP_Query( $args ); 
+            if ( $the_query->have_posts() ) : 
+            while ( $the_query->have_posts() ) : $the_query->the_post();
+            $imagepath = wp_get_attachment_image_src(get_post_thumbnail_id(),'large');
+            
+            ?>
+          
+                <div class="row">              
+                  <div class="col-6"><img class="w-100" src="<?php echo $imagepath[0] ?>" alt=""></div>
+                  <div class="col-6 right-section px-4 d-flex justify-content-center flex-column align-items-start ">
+                      <h3><?php the_title(); ?></h3>
+                      <div class="tags">
+                        <p class="m-0">
+                      <?php
+                          $posttags = get_the_tags();
+                          if ($posttags) {
+                            foreach($posttags as $tag) {
+                              ?>
+                              <span class="single-tags">
+                              <?php
+                              echo $tag->name . ' . '; 
+                              ?>
+                              </span>
+                              <?php
+                            }
+                          }
+                      ?>
+                      </p>
+                        <!-- <p>
+                          <span class="single-tags">Java</span> . <span class="single-tags">Artificial Intelligence</span> . <span class="single-tags">Automobile</span>
+                        </p> -->
+                      </div>
+                      <?php the_excerpt(); ?>
+                    <div class="btn-div"> <a class="btn btn-site px-6" href="<?php echo get_permalink();  ?>">View Case Study</a> </div>
+                  </div>
+                </div>
+                <?php endwhile;
+                  wp_reset_postdata();  else:  ?>
+                  <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+                  <?php endif; ?>  
          </div>
       </div>
 
@@ -109,34 +138,32 @@ get_header();
     </div>
   </div>
 
-  <div class="container-fluid gallery-section py-5">
-      <div class="row d-flex flex-nowrap justify-content-center align-items-center gallery-section-inner">
-          <div class="inner-images">
-            <!-- <img src="http://localhost/AurigaCus/wp-content/uploads/2022/10/image.png" alt=""> -->
-          </div>
-          <div class="inner-images">
-            <!-- <img src="http://localhost/AurigaCus/wp-content/uploads/2022/10/image.png" alt=""> -->
-          </div>
-          <div class="inner-images">
-            <!-- <img src="http://localhost/AurigaCus/wp-content/uploads/2022/10/image.png" alt=""> -->
-          </div>
-          <div class="inner-images">
-            <!-- <img src="http://localhost/AurigaCus/wp-content/uploads/2022/10/image.png" alt=""> -->
-          </div>
-          <div class="inner-images">
-            <!-- <img src="http://localhost/AurigaCus/wp-content/uploads/2022/10/image.png" alt=""> -->
-          </div>
-          <div class="inner-images">
-            <!-- <img src="http://localhost/AurigaCus/wp-content/uploads/2022/10/image.png" alt=""> -->
-          </div>
-          <div class="inner-images">
-            <!-- <img src="http://localhost/AurigaCus/wp-content/uploads/2022/10/image.png" alt=""> -->
-          </div>
-          <div class="inner-images">
-            <!-- <img src="http://localhost/AurigaCus/wp-content/uploads/2022/10/image.png" alt=""> -->
-          </div>
-      </div>
-  </div>
+ 
+
+  <div class="gallery-section owl-carousel owl-theme py-5 my-5">
+       
+  <?php 
+$args = array( 'post_type' => 'casestudys', 'posts_per_page' => -1 );
+$the_query = new WP_Query( $args ); 
+ if ( $the_query->have_posts() ) : 
+ while ( $the_query->have_posts() ) : $the_query->the_post();
+ $imagepath = wp_get_attachment_image_src(get_post_thumbnail_id(),'large');
+ 
+ ?>
+         <div class="item inner-images">
+             <img src="<?php echo $imagepath[0]; ?>" alt="" class="w-100">
+         </div>
+
+         <?php endwhile;
+        wp_reset_postdata();  else:  ?>
+        <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+        <?php endif; ?>         
+       
+   </div>  
+
+
+
+ 
 
 
   <div class="container-fluid career-section">
@@ -158,38 +185,19 @@ get_header();
            <div class="col-12 p-0">
               <h5 class="test-heading-small mb-3">Inside Auriga</h5>
               <h3 class="mb-4">Tagline about Insights</h3>
-                  <div class="inside-outer-div d-flex">
-                    <div class="inside-posts d-flex flex-column ">
-                        <img class="w-100" src="http://localhost/AurigaCus/wp-content/uploads/2022/10/Rectangle-82.png" alt="inside-post-image">
-                        <h5 class="m-0">Toll mangement and command centre with TMCC</h5>
-                        <p class="m-0">We’re passionately committed to helping our clients and their customers thrive, working side by side to drive customer value and results</p>
-                        <a href="">Read more</a>
-                    </div>
-                    <div class="inside-posts d-flex flex-column ">
-                        <img class="w-100" src="http://localhost/AurigaCus/wp-content/uploads/2022/10/Rectangle-82-1.png" alt="inside-post-image">
-                        <h5 class="m-0">Toll mangement and command centre with TMCC</h5>
-                        <p class="m-0">We’re passionately committed to helping our clients and their customers thrive, working side by side to drive customer value and results</p>
-                        <a href="">Read more</a>
-                    </div>
-                    <div class="inside-posts d-flex flex-column ">
-                        <img class="w-100" src="http://localhost/AurigaCus/wp-content/uploads/2022/10/Rectangle-82-2.png" alt="inside-post-image">
-                        <h5 class="m-0">Toll mangement and command centre with TMCC</h5>
-                        <p class="m-0">We’re passionately committed to helping our clients and their customers thrive, working side by side to drive customer value and results</p>
-                        <a href="">Read more</a>
-                    </div>
-                  </div>  
+                  
+
+                  <?php echo do_shortcode ('[categoryposts]') ?>
+               
+                  
                 <div class="btn-div text-center py-5"> <a class="btn btn-site px-6" href="">Read our blog</a> </div>     
            </div>
        </div>
   </div>
-  <div class="container let-connect">
-    <div class="row">
-      <div class="col-12 text-center ">
-          <h3 class="mb-5">Ready to get started?  </h3>
-          <div class="btn-div text-center"> <a class="btn btn-site px-6" href="">Let’s connect</a> </div>
-      </div>
-    </div>
-  </div>    
+  
+  <?php echo do_shortcode('[get_started]'); ?>
+
+  
 <?php
 get_footer();
 ?> 

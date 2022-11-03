@@ -68,72 +68,71 @@ add_shortcode('case_study', 'case_study_function');
 function case_study_function(){
     ?>
    <div class="slider-section-home border-bottom">
-   <div class="owl-carousel owl-theme py-5">
-    <div class="item">
-        <div class="case-study-box flex-column row">
-            <div class="image-box"><img class="w-100" src="http://localhost/AurigaCus/wp-content/uploads/2022/10/featured-image.png" alt=""></div>
-            <div class="text-box right-section-case pt-4 d-flex justify-content-center flex-column align-items-start">
-                 <h3>Data analytics for Volkswagen : A Classic Case of Load balancing</h3>
-                <div class="tags">
-                  <p><span class="single-tags">Java</span> . <span class="single-tags">Artificial Intelligence</span> . <span class="single-tags">Automobile</span></p>
-                </div>
-                <p>We upgraded the Volkswagen’s data entry system to the next level. Increased the system security by 24%.</p>
-               <div class="btn-div"> <a class="btn btn-site px-6" href="Case-study">View Case Study</a> </div>               
- 
-            </div>
-        </div>
-    </div>
-    
-    <div class="item">
-        <div class="case-study-box flex-column row">
-            <div class="image-box"><img class="w-100" src="http://localhost/AurigaCus/wp-content/uploads/2022/10/featured-image.png" alt=""></div>
-            <div class="text-box right-section-case pt-4 d-flex justify-content-center flex-column align-items-start">
-                 <h3>Data analytics for Volkswagen : A Classic Case of Load balancing</h3>
-                <div class="tags">
-                  <p><span class="single-tags">Java</span> . <span class="single-tags">Artificial Intelligence</span> . <span class="single-tags">Automobile</span></p>
-                </div>
-                <p>We upgraded the Volkswagen’s data entry system to the next level. Increased the system security by 24%.</p>
-               <div class="btn-div"> <a class="btn btn-site px-6" href="Case-study">View Case Study</a> </div>               
- 
-            </div>
-        </div>
-    </div>
+   <div class="case-study-slider owl-carousel owl-theme py-5">
 
+     
+     <?php 
+$args = array( 'post_type' => 'casestudys', 'posts_per_page' => -1 );
+$the_query = new WP_Query( $args ); 
+ if ( $the_query->have_posts() ) : 
+ while ( $the_query->have_posts() ) : $the_query->the_post();
+ $imagepath = wp_get_attachment_image_src(get_post_thumbnail_id(),'large');
+ 
+ ?>
     <div class="item">
         <div class="case-study-box flex-column row">
-            <div class="image-box"><img class="w-100" src="http://localhost/AurigaCus/wp-content/uploads/2022/10/featured-image.png" alt=""></div>
+            <div class="image-box"><img class="w-100" src="<?php echo $imagepath[0] ?>" alt=""></div>
             <div class="text-box right-section-case pt-4 d-flex justify-content-center flex-column align-items-start">
-                 <h3>Data analytics for Volkswagen : A Classic Case of Load balancing</h3>
+                 <h3><?php the_title(); ?></h3>
+
                 <div class="tags">
-                  <p><span class="single-tags">Java</span> . <span class="single-tags">Artificial Intelligence</span> . <span class="single-tags">Automobile</span></p>
+                <p class="m-0">
+                      <?php
+                          $posttags = get_the_tags();
+                          if ($posttags) {
+                            foreach($posttags as $tag) {
+                              ?>
+                              <span class="single-tags">
+                              <?php
+                              echo $tag->name . ' . '; 
+                              ?>
+                              </span>
+                              <?php
+                            }
+                          }
+                      ?>
+                      </p>
                 </div>
-                <p>We upgraded the Volkswagen’s data entry system to the next level. Increased the system security by 24%.</p>
-               <div class="btn-div"> <a class="btn btn-site px-6" href="Case-study">View Case Study</a> </div>               
+                <p><?php the_excerpt();  ?> </p>
+               <div class="btn-div"> <a class="btn btn-site px-6" href="<?php echo get_permalink(); ?>">View Case Study</a> </div>               
  
             </div>
         </div>
     </div>
-    
-    <div class="item">
-        <div class="case-study-box flex-column row">
-            <div class="image-box"><img class="w-100" src="http://localhost/AurigaCus/wp-content/uploads/2022/10/featured-image.png" alt=""></div>
-            <div class="text-box right-section-case pt-4 d-flex justify-content-center flex-column align-items-start">
-                 <h3>Data analytics for Volkswagen : A Classic Case of Load balancing</h3>
-                <div class="tags">
-                  <p><span class="single-tags">Java</span> . <span class="single-tags">Artificial Intelligence</span> . <span class="single-tags">Automobile</span></p>
-                </div>
-                <p>We upgraded the Volkswagen’s data entry system to the next level. Increased the system security by 24%.</p>
-               <div class="btn-div"> <a class="btn btn-site px-6" href="Case-study">View Case Study</a> </div>               
- 
-            </div>
-        </div>
-    </div>
+            <?php endwhile;
+        wp_reset_postdata();  else:  ?>
+        <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+        <?php endif; ?>
 
     </div>
-    <div class="btn-div mt-4 text-center"> <a class="btn btn-site px-6" href="Case-study">All Case Studies</a> </div>  
+    <div class="btn-div mt-4 text-center"> <a class="btn btn-site px-6" href="<?php the_permalink(134); ?>">All Case Studies</a> </div>  
     </div>
 
     <?php
+}
+
+add_shortcode('get_started', 'get_started_fun');
+function get_started_fun() { 
+     ?>
+     <div class="container let-connect">
+    <div class="row">
+      <div class="col-12 text-center ">
+          <h3 class="mb-5">Ready to get started?  </h3>
+          <div class="btn-div text-center"> <a class="btn btn-site px-6" href="">Let’s connect</a> </div>
+      </div>
+    </div>
+  </div>   
+     <?php
 }
 
 
@@ -173,6 +172,49 @@ function what_we_serve_fun() {
             </div>    
     <?php
 }
+
+
+function wpb_postsbycategory() {
+    // the query
+    $the_query = new WP_Query( array( 
+        'category_name' => 'Inside', 
+        'posts_per_page' => 3 
+    ) ); 
+
+       
+    // The Loop
+    $string = "";
+    $post_id = "";
+    if ( $the_query->have_posts() ) {
+        $string .= '<div class="inside-outer-div d-flex ">';
+        while ( $the_query->have_posts() ) {
+            $the_query->the_post();
+            $imagepath = wp_get_attachment_image_src(get_post_thumbnail_id(),'large');
+                if ( has_post_thumbnail() ) {
+                $string .= '<div class="inside-posts d-flex flex-column ">';
+                // $string .= '<a href="' . get_the_permalink() .'" rel="bookmark" class="testing">' . get_the_post_thumbnail($post_id, array( 50, 50) ) . get_the_title() .'</a></div>';
+                $string .= '<div class="image-div"><img class="w-100" src="'. $imagepath[0] .'" alt="inside-post-image"></div>
+                <h5 class="m-0">'. get_the_title() .'</h5>
+                <p class="m-0 test">'.  get_the_excerpt() .'</p>
+                <a href="' . get_the_permalink() .'" >Read more</a></div>';
+                } else { 
+                // if no featured image is found
+                $string .= '<li><a href="' . get_the_permalink() .'" rel="bookmark">'. get_the_title().'</a></li>';
+                }
+                }
+        } else {
+        // no posts found
+     $string .= '<li>No Posts Found</li>';
+    }
+    $string .= '</div>';
+       
+    return $string;
+       
+    /* Restore original Post Data */
+    wp_reset_postdata();
+    }
+    // Add a shortcode
+    add_shortcode('categoryposts', 'wpb_postsbycategory');
 /*
 * Creating a function to create our CPT
 */

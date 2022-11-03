@@ -22,7 +22,7 @@
 
 
     <div class="container menu-container">
-    <header class="d-flex align-items-center flex-wrap justify-content-center py-5  mb-4 border-bottom">
+    <header class="d-flex align-items-center flex-wrap justify-content-center py-5  mb-4">
      
       <a href="/AurigaCus" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"><img src="<?php bloginfo('template_directory') ?>/images/auriga.svg" alt=""></a>
       </a>

@@ -51,6 +51,11 @@ li.menu-item-has-children:hover>.sub-menu {
     margin-left: 10px;
 }
 
+.ul-navbar .nav-item.current_page_item > a {
+    font-weight: 600;
+    color: #1088DC ;
+}
+
 .sub-menu {
     position: absolute;
     left: 0;
@@ -90,6 +95,22 @@ li.menu-item-has-children:hover>.sub-menu {
 }
 .right-section h3  {
 font-size: 1.5rem;
+}
+
+.inside-posts .image-div {
+    max-width: 100%;
+    aspect-ratio: 32/19;
+    object-fit: cover;
+}
+.inside-posts .image-div img{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+
+.tags p {
+    color: #696B6D;
+    font-size: 600;
 }
 .right-section p , .right-section-case p {
     font-size: .9rem;
@@ -191,15 +212,47 @@ line-height: 36px;
     line-height: 36px;
     color: #727E87;
 }
-.gallery-section {
+/* .gallery-section {
     overflow-x: scroll;
+} */
+
+.gallery-section .owl-stage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
 }
+ 
+.gallery-section .owl-nav {
+    display: none;
+}
+.gallery-section .owl-item:nth-child(even)  {
+    width: 292px !important;
+    height: 437px;
+}
+.gallery-section .owl-item:nth-child(odd)  {
+    width: 519px !important;
+    height: 349px;
+}
+.gallery-section .owl-item {
+    margin: 0px !important;
+}
+ 
+.gallery-section .owl-item .inner-images {
+    width: 100%;
+    height: 100%;
+}
+
+.gallery-section .owl-item .inner-images img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
+
 .gallery-section-inner .inner-images:nth-child(even) {
     width: 292px;
     height: 437px;
-    background:url('http://localhost/AurigaCus/wp-content/uploads/2022/10/image.png') no-repeat;
-    background-size: cover;
-    background-position: center;
 }
 .gallery-section-inner {
     gap: 45px;
@@ -207,9 +260,15 @@ line-height: 36px;
 .gallery-section-inner .inner-images:nth-child(odd) {
     width: 519px;
     height: 349px;
-    background:url('http://localhost/AurigaCus/wp-content/uploads/2022/10/image.png') no-repeat;
+    /* background:url('http://localhost/AurigaCus/wp-content/uploads/2022/10/image.png') no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center; */
+}
+
+.inner-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .career-section {
@@ -274,6 +333,15 @@ li.icon-footer {
 }
 .footer-outer-div {
     border-top: 1px dashed #CBD5DB;
+}
+
+/* comment css */
+.comment-form label {
+    display: block;
+}
+
+.comment-form .comment-form-cookies-consent label {
+    display: inline-block;
 }
 
 

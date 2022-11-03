@@ -1,4 +1,4 @@
-<div class="container-fluid footer-outer-div">
+<div class="container-fluid footer-outer-div mt-5">
 <div class="container">  
   <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5">
     <div class="col mb-3">
@@ -47,13 +47,23 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="text/javascript">
 
-$('.owl-carousel').owlCarousel({
+$('.case-study-slider').owlCarousel({
     loop:true,
     margin:50,
     nav:true,
     dots: false,
     responsiveClass: true,
 				items: 2,
+				nav:true,
+})
+
+$('.gallery-section').owlCarousel({
+    loop:true,
+    margin:50,
+    nav:true,
+    dots: false,
+    responsiveClass: true,
+				items: 4,
 				nav:true,
 })
 
