@@ -344,4 +344,9 @@ li.icon-footer {
     display: inline-block;
 }
 
+.error-page {
+    background: #333;
+    color: #fff;
+}
+
 

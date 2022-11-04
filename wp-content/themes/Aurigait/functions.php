@@ -33,11 +33,22 @@ function add_additional_class_on_li($classes, $item, $args) {
 add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
 
 register_nav_menus(
-    array('primary-menu'=>'Top menu')
+    array('primary-menu'=>'Top menu',
+          'first-menu'=>'bottom-first-menu',
+          "second-menu"=>'bottom-second-menu',
+          'third-menu'=>'bottom-thirds-menu')
 );
+
+// register_nav_menus(
+//     array(')
+// );
 
 add_theme_support('post-thumbnails');
 add_theme_support('custom-header');
+add_theme_support('custom-background');
+add_theme_support( 'title-tag' );
+add_theme_support( 'custom-logo' );
+add_post_type_support('page','excerpt');
 
 
 
@@ -223,26 +234,26 @@ function custom_post_type() {
   
     // Set UI labels for Custom Post Type
         $labels = array(
-            'name'                => _x( 'Case Studys', 'Post Type General Name', 'twentytwentyone' ),
-            'singular_name'       => _x( 'Case Study', 'Post Type Singular Name', 'twentytwentyone' ),
-            'menu_name'           => __( 'Case Studys', 'twentytwentyone' ),
-            'parent_item_colon'   => __( 'Parent Case Study', 'twentytwentyone' ),
-            'all_items'           => __( 'All Case Studys', 'twentytwentyone' ),
-            'view_item'           => __( 'View Case Study', 'twentytwentyone' ),
-            'add_new_item'        => __( 'Add New Case Study', 'twentytwentyone' ),
-            'add_new'             => __( 'Add New', 'twentytwentyone' ),
-            'edit_item'           => __( 'Edit Case Study', 'twentytwentyone' ),
-            'update_item'         => __( 'Update Case Study', 'twentytwentyone' ),
-            'search_items'        => __( 'Search Case Study', 'twentytwentyone' ),
-            'not_found'           => __( 'Not Found', 'twentytwentyone' ),
-            'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
+            'name'                => _x( 'Case Studys', 'Post Type General Name', 'aurigacus' ),
+            'singular_name'       => _x( 'Case Study', 'Post Type Singular Name', 'aurigacus' ),
+            'menu_name'           => __( 'Case Studys', 'aurigacus' ),
+            'parent_item_colon'   => __( 'Parent Case Study', 'aurigacus' ),
+            'all_items'           => __( 'All Case Studys', 'aurigacus' ),
+            'view_item'           => __( 'View Case Study', 'aurigacus' ),
+            'add_new_item'        => __( 'Add New Case Study', 'aurigacus' ),
+            'add_new'             => __( 'Add New', 'aurigacus' ),
+            'edit_item'           => __( 'Edit Case Study', 'aurigacus' ),
+            'update_item'         => __( 'Update Case Study', 'aurigacus' ),
+            'search_items'        => __( 'Search Case Study', 'aurigacus' ),
+            'not_found'           => __( 'Not Found', 'aurigacus' ),
+            'not_found_in_trash'  => __( 'Not found in Trash', 'aurigacus' ),
         );
           
     // Set other options for Custom Post Type
           
         $args = array(
-            'label'               => __( 'Case Studys', 'twentytwentyone' ),
-            'description'         => __( 'Case Study news and reviews', 'twentytwentyone' ),
+            'label'               => __( 'Case Studys', 'aurigacus' ),
+            'description'         => __( 'Case Study news and reviews', 'aurigacus' ),
             'labels'              => $labels,
             // Features this CPT supports in Post Editor
             'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
@@ -281,5 +292,20 @@ function custom_post_type() {
       
     add_action( 'init', 'custom_post_type', 0 );
 
+
+
+    // show widget option
+   register_sidebar(
+    array(
+        'name'=>"Sidebar Location",
+        'id'=> "sidebar"
+    )
+   );
+
+   function dd($test){
+echo '<pre>';
+print_r($test);
+echo '</pre>';
+   }
 
 ?>

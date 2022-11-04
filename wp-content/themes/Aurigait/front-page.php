@@ -1,6 +1,7 @@
 <?php 
 get_header();
 // hello(); echo get_template_directory_uri();
+
 ?>
   <div class="container container-top mb-5 d-lg-flex align-items-lg-center content-space-t-3 content-space-lg-0 min-vh-lg-100">
         <!-- Heading -->
@@ -37,7 +38,7 @@ get_header();
           <h5 class="test-heading-small mb-4">Our work</h2>
 
           <?php 
-            $args = array( 'post_type' => 'casestudys', 'posts_per_page' => 1 );
+            $args = array( 'post_type' => 'casestudys', 'post_status'=>'publish', 'posts_per_page' => 1 );
             $the_query = new WP_Query( $args ); 
             if ( $the_query->have_posts() ) : 
             while ( $the_query->have_posts() ) : $the_query->the_post();

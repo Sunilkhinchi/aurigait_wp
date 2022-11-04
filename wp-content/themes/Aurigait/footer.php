@@ -16,27 +16,28 @@
     </div>
 
     <div class="col mb-3">
-      <ul class="nav flex-column footer-nav">
-        <li class="nav-item mb-3"><a href="#" class="nav-link p-0 text-muted">Work</a></li>
-        <li class="nav-item mb-3"><a href="#" class="nav-link p-0 text-muted">Clients</a></li>
-        <li class="nav-item mb-3"><a href="#" class="nav-link p-0 text-muted">Solutions</a></li>
-      </ul>
+    <?php wp_nav_menu(
+                    array('theme_location'=>'first-menu',
+                           'menu_class'=>'nav flex-column footer-nav',
+                           'add_li_class'=> 'nav-item mb-3')) 
+      ?>
     </div>
 
     <div class="col mb-3">
-      <ul class="nav flex-column footer-nav">
-        <li class="nav-item mb-3"><a href="#" class="nav-link p-0 text-muted">Services</a></li>
-        <li class="nav-item mb-3"><a href="#" class="nav-link p-0 text-muted">Talent Network</a></li>
-        <li class="nav-item mb-3"><a href="#" class="nav-link p-0 text-muted">Careers</a></li>
-      </ul>
+    <?php wp_nav_menu(
+                    array('theme_location'=>'second-menu',
+                           'menu_class'=>'nav flex-column footer-nav',
+                           'add_li_class'=> 'nav-item mb-3')) 
+      ?>
     </div>
 
     <div class="col mb-3">
-   
-      <ul class="nav flex-column footer-nav">
-        <li class="nav-item mb-3"><a href="#" class="nav-link p-0 text-muted">About Us</a></li>
-        <li class="nav-item mb-3"><a href="#" class="nav-link p-0 text-muted">Blog</a></li>
-      </ul>
+
+      <?php wp_nav_menu(
+                    array('theme_location'=>'third-menu',
+                           'menu_class'=>'nav flex-column footer-nav',
+                           'add_li_class'=> 'nav-item mb-3')) 
+      ?>
     </div>
   </footer>
 </div>  

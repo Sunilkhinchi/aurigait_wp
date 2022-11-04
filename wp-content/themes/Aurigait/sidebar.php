@@ -1,0 +1,1 @@
+<div class="sidebar-div"><?php dynamic_sidebar('sidebar'); ?></div>
