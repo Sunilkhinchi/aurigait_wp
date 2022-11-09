@@ -38,7 +38,7 @@ get_header();
           <h5 class="test-heading-small mb-4">Our work</h2>
 
           <?php 
-            $args = array( 'post_type' => 'casestudys', 'post_status'=>'publish', 'posts_per_page' => 1 );
+            $args = array( 'post_type' => 'casestudies', 'post_status'=>'publish', 'posts_per_page' => 1 );
             $the_query = new WP_Query( $args ); 
             if ( $the_query->have_posts() ) : 
             while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -144,7 +144,7 @@ get_header();
   <div class="gallery-section owl-carousel owl-theme py-5 my-5">
        
   <?php 
-$args = array( 'post_type' => 'casestudys', 'posts_per_page' => -1 );
+$args = array( 'post_type' => 'casestudies', 'posts_per_page' => -1 );
 $the_query = new WP_Query( $args ); 
  if ( $the_query->have_posts() ) : 
  while ( $the_query->have_posts() ) : $the_query->the_post();

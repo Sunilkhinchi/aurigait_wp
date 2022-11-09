@@ -39,9 +39,49 @@ register_nav_menus(
           'third-menu'=>'bottom-thirds-menu')
 );
 
+
+// hook create
+
+add_action('aurigait_after_content','content_funtion');
+
+function content_funtion() {
+    echo "content through custom hook first";
+}
+
+add_action('aurigait_after_content','content_funtion_two',8);
+
+function content_funtion_two() {
+    echo "content through custom hook 2nd";
+}
+
+// function theme_excerpt_length( $length ) {
+//     return 10;
+// }
+// add_filter( 'excerpt_length', 'theme_excerpt_length', 999 );
+
+// remove_action('aurigait_after_content','content_funtion_two',8);
+
+// add_filter('the_title','filter_fun');
+// function filter_fun($example) {
+//     $example .= 'extra content';
+
+//     return $example;
+// }
+
+// function save_test($post_id,$post){
+//     echo "Dt";
+// }
+// add_action('save_post','save_test',10,2);
+
+
 // register_nav_menus(
 //     array(')
 // );
+
+;
+
+
+
 
 add_theme_support('post-thumbnails');
 add_theme_support('custom-header');
@@ -83,7 +123,7 @@ function case_study_function(){
 
      
      <?php 
-$args = array( 'post_type' => 'casestudys', 'posts_per_page' => -1 );
+$args = array( 'post_type' => 'casestudies', 'posts_per_page' => -1 );
 $the_query = new WP_Query( $args ); 
  if ( $the_query->have_posts() ) : 
  while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -234,11 +274,11 @@ function custom_post_type() {
   
     // Set UI labels for Custom Post Type
         $labels = array(
-            'name'                => _x( 'Case Studys', 'Post Type General Name', 'aurigacus' ),
+            'name'                => _x( 'Case studies ', 'Post Type General Name', 'aurigacus' ),
             'singular_name'       => _x( 'Case Study', 'Post Type Singular Name', 'aurigacus' ),
-            'menu_name'           => __( 'Case Studys', 'aurigacus' ),
+            'menu_name'           => __( 'Case studies ', 'aurigacus' ),
             'parent_item_colon'   => __( 'Parent Case Study', 'aurigacus' ),
-            'all_items'           => __( 'All Case Studys', 'aurigacus' ),
+            'all_items'           => __( 'All Case studies', 'aurigacus' ),
             'view_item'           => __( 'View Case Study', 'aurigacus' ),
             'add_new_item'        => __( 'Add New Case Study', 'aurigacus' ),
             'add_new'             => __( 'Add New', 'aurigacus' ),
@@ -252,7 +292,7 @@ function custom_post_type() {
     // Set other options for Custom Post Type
           
         $args = array(
-            'label'               => __( 'Case Studys', 'aurigacus' ),
+            'label'               => __( 'Case studies', 'aurigacus' ),
             'description'         => __( 'Case Study news and reviews', 'aurigacus' ),
             'labels'              => $labels,
             // Features this CPT supports in Post Editor
@@ -281,7 +321,7 @@ function custom_post_type() {
         );
           
         // Registering your Custom Post Type
-        register_post_type( 'Case Studys', $args );
+        register_post_type( 'Case Studies', $args );
       
     }
       
