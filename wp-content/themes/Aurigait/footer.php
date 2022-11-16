@@ -68,6 +68,9 @@ $('.gallery-section').owlCarousel({
 				nav:true,
 })
 
+
+
+
 </script>
 
 <?php wp_footer(); ?>

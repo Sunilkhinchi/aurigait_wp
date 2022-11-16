@@ -10,6 +10,12 @@ function load_stylesheet() {
 add_action('wp_enqueue_scripts','load_stylesheet');
 
 
+// function theme_scripts_method(){
+//     wp_enqueue_script( 'jquery');
+//     }
+//     add_action( 'wp_enqueue_scripts', 'theme_scripts_method' );
+
+
 function load_bootstrapcss() {
     wp_register_style('style_bootstrap',get_template_directory_uri().'/css/bootstrap/bootstrap.min.css');
     wp_enqueue_style('style_bootstrap');
